@@ -286,4 +286,253 @@ raisonner dans des conditions avec des \textbf{informations partielles}.\\[8pt]
     \end{block}}
 \end{frame}
 % }}} axioms conditional probability %
+% Modele base sur un conditionement {{{ %
+\begin{frame}[t]
+    \frametitle{Modèle base sur Conditionnement}
+   \begin{columns}
+       \begin{column}{0.4\textwidth}
+           
+        \begin{itemize}
+            \scriptsize
+            \item<1-> Évènement \structure{\textbf{A}}: Un avion vole dans l'air
+            \item<4-> Évènement \alert{\textbf{B}}: On détecte l'avion dans le
+                radar.\\[12pt]
+            \item<9-> $P(A\cap B)$:\\[15pt]
+            \item<10-> $P(B)$:\\[15pt]
+            \item <11-> $P(A\;|\; B)$!!
+        \end{itemize}
+       \end{column}
+       \begin{column}{0.6\textwidth}
+           
+           \only<10->
+           {
+               \begin{block}{}
+                   
+                   \scriptsize
+                   \begin{equation*}
+                       P(A\;|\; B) = \frac{ P(A \cap B)}{P(B)} \quad  P(B\;|\; A)
+                       = \frac{P(A\cap B)}{P(A)}
+                   \end{equation*}
+               \end{block}
+           }
+           \vspace*{1cm}
+           \begin{center}
+           \begin{tikzpicture}[yscale=.8, transform shape]
+               
+               \only<2->
+               {
+                \draw[thick] (0,0) -- (2,1)node[label=above:{\small$A$}]{};
+                \draw[thick] (0,0) -- (2,-1)node[label=below:{\small$A^c$}]{};
+               }
+
+               \only<3->{
+                \node at (0, .6) {\scriptsize $P(A) = 0.05$};
+                \node at (0, -.6) {\scriptsize $P(A^c) = 0.95$};
+            }
+
+            \only<5->
+            {
+                \draw[thick] (2,1) -- (4,1.5)node[label=right:{\small$A\cap B$}]{};
+                \draw[thick] (2,1) -- (4,.5)node[label=right:{\small$A\cap B^c$}]{};
+                \draw[thick] (2,-1) -- (4,-.5)node[label=right:{\small$A^c\cap B$}]{};
+                \draw[thick] (2,-1) -- (4,-1.5)node[label=right:{\small$A^c\cap B^c$}]{};
+            }
+            \only<6->
+            {
+                \node (P) at (2.6,1.4) {\small$0.99$};
+                \node at (2.6,0.6) {\small$0.01$};
+            }
+            \only<7->
+            {
+                \node (Pc) at (1.2,2.2) {\small\alert{$P(B \; |\; A)$}};
+                \path[draw,->,>=latex] (Pc) -- (P);
+            }
+
+            \only<8->
+            {
+                \node  at (2.6,-0.4) {\small$0.10$};
+                \node at (2.6,-1.6) {\small$0.90$};
+            }
+           \end{tikzpicture}
+           \end{center}
+       \end{column}
+   \end{columns} 
+\end{frame}
+% }}} Modele base sur un conditionement %
+% Rege de multiplication {{{ %
+\begin{frame}[t]
+    \frametitle{Règle de multiplication}
+   \begin{columns}
+       \begin{column}{0.4\textwidth}
+          \scriptsize 
+           \begin{equation*}
+               P(A\;|\;B)  = \frac{ P(A\cap B)}{ P(B)}
+           \end{equation*}
+           \only<2->
+           {
+
+               \begin{eqnarray*}
+                   P(A\cap B) & = & P(B)\;P(A\;|\;B) \\
+                              & = & P(A)\;P(B\;|\; A)
+               \end{eqnarray*}
+           }
+           \only<4->
+           {
+               \begin{equation*}
+                   P\left(\structure{A^c}\cap \alert{B \cap C^c}\right)=
+               \end{equation*}
+           }
+       \end{column}
+       \begin{column}{0.6\textwidth}
+           
+           \only<3->
+           {
+                   \centering
+                   \includegraphics[width=0.8\textwidth, height=5cm]{./tree_event_multiplication.png}
+           }
+       \end{column}
+   \end{columns} 
+
+   \vspace*{1cm}
+       \only<4->
+       {
+           \scriptsize
+           \begin{equation*}
+               \scriptsize
+               P(A_1\cap A_2\cap\ldots A_n) = P(A_1)\prod_{i=2}^n P(A_i\;|\;
+               A_1\cap A_2\cap\ldots\cap A_{i-1})
+           \end{equation*}
+       }
+
+\end{frame}
+% }}} Rege de multiplication %
+% Mini Exercice {{{ %
+\begin{frame}[<+->]
+    \frametitle{Pratique règle multiplication}
+   \begin{itemize}
+       \small
+       \item Est ce que les formules suivantes sont Correctes:\\[4pt]
+           \begin{itemize}
+               \scriptsize
+               \item $P(A\cap B \cap C^c)  = P(A\cap B) P(C^c\;|A\cap B)$\\[12pt]
+               \item $P(A\cap B \cap C^c)  = P(A) P(C^c\;|A) P(B\;|\;A\cap
+                   C^c)$\\[12pt]
+               \item $P(A\cap B\cap C^c) = P(A) P(C^c\cap A|A)P(B|A\cap
+                   C^c)$\\[12pt]
+               \item $P(A\cap B|C) = P(A|C)P(B|A\cap C)$
+           \end{itemize}
+   \end{itemize}  
+\end{frame}
+% }}} Mini Exercice %
+% Formule de probabilité totale {{{ %
+\begin{frame}[t]
+    \frametitle{Formule de probabilité totale}
+   \begin{columns}
+       \begin{column}{0.4\textwidth}
+           \only<1->
+           {
+                   \centering
+                   \includegraphics[width=0.9\textwidth]{./form_total_probablity.png}
+               }
+        \only<2->
+        {
+                \centering
+                \includegraphics[width=0.8\textwidth]{./total_probability_tree.png}
+        }
+       \end{column}
+       \begin{column}{0.6\textwidth}
+           \begin{itemize}
+               \scriptsize
+               \item<1-> On possède une partition $\structure{A_1,A_2,A_3}$ de
+                   l'ensemble $\Omega$. \\[8pt]
+               \item<1-> On a $P(A_i)$ pour chaque $i$. 
+               \item<3-> On possède $P(B \;|\; A_i)$ pour chaque $i$.
+           \end{itemize}
+
+           \only<4>
+           {
+               $$
+               P(B)?
+               $$
+           }
+
+           \only<5->
+           {
+               \scriptsize
+               \begin{eqnarray*}
+                   P(B) = P(B \cap A_1) + P(B \cap A_2) + P(B \cap A_3)
+               \end{eqnarray*}
+           }
+           \only<6->
+           {
+               \begin{block}{Formule de probabilité totale.}
+                   
+                   \small
+                   $$
+                   P(B) = \sum_{i} P(A_i) P(B\;|\;A_i)
+                   $$
+               \end{block}
+           }
+       \end{column}
+
+   \end{columns} 
+\end{frame}
+% }}} Formule de probabilité totale %
+% Regle de Bayes {{{ %
+\begin{frame}[t]
+    \frametitle{Règle de Bayes}
+    
+   \begin{columns}
+       \begin{column}{0.4\textwidth}
+           \only<1->
+           {
+                   \centering
+                   \includegraphics[width=0.9\textwidth]{./form_total_probablity.png}
+               }
+        \only<2->
+        {
+                \centering
+                \includegraphics[width=0.8\textwidth]{./total_probability_tree.png}
+        }
+       \end{column}
+       \begin{column}{0.6\textwidth}
+           \begin{itemize}
+               \scriptsize
+               \item<1-> On possède une partition $\structure{A_1,A_2,A_3}$ de
+                   l'ensemble $\Omega$. \\[8pt]
+               \item<1-> On a $P(A_i)$ pour chaque $i$. \alert{\textbf{Croyances
+                   a priori}} 
+               \item<3-> On possède $P(B \;|\; A_i)$ pour chaque $i$.
+                   \alert{\textbf{Croyances révisées}} 
+           \end{itemize}
+
+           \only<4>
+           {
+               $$
+               P(\alert{A_i}\;|\; \structure{B})?
+               $$
+           }
+
+           \only<5->
+           {
+               \scriptsize
+               \begin{eqnarray*}
+                   P(A_i\;|\;B) = \frac{ P(A_i \cap B)}{P(B)} 
+               \end{eqnarray*}
+           }
+           \only<6->
+           {
+               \begin{block}{Formule de Bayes.}
+                   
+                   \small
+                   $$
+                   P(A_i\;|\; B) = \frac{P(A_i) P(B\;|\;A_i)}{P(B)} 
+                   $$
+               \end{block}
+           }
+       \end{column}
+
+   \end{columns} 
+\end{frame}
+% }}} Regle de Bayes %
 \end{document}
