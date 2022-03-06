@@ -1,0 +1,163 @@
+%{{{
+\documentclass{beamer}
+\usetheme{ensam}
+\usepackage{pgfplots}
+\usepackage{subcaption}
+\usepackage{forest}
+\usepackage{acronym}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{amsmath}
+\usepackage {algorithmic}
+\usepackage{algorithm}
+\usepackage{eqparbox}
+\usepackage[font=scriptsize]{caption}
+\usetikzlibrary{bayesnet,positioning,calc}
+\tikzstyle{obs} = [latent,fill=lightBlue]
+\tikzstyle{default}=[draw=sexyRed,thick,rounded corners,text width=0.5in,font=\scriptsize,align=center]
+\usepgfplotslibrary{colorbrewer}
+\definecolor{ForestGreen}{RGB}{34,139,34}
+\newcommand{\comment}[1]{\textcolor{ForestGreen}{#1}}
+%algorithmic comment
+\renewcommand\algorithmiccomment[1]{%
+  \hfill\comment{\#\scriptsize\eqparbox{COMMENT}{#1}}%
+}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\title{Problèmes résolus en conditionnement}
+\author{\underline{A.Belcaid}}
+\institute{\small ENSA-Safi} 
+
+%tikz bayesian theme
+\usetikzlibrary{bayesnet,positioning,calc}
+\tikzstyle{obs} = [latent,fill=lightBlue]
+\tikzstyle{default}=[draw=sexyRed,thick,rounded corners,text width=0.5in,font=\scriptsize,align=center]
+\DeclareMathOperator{\argmin}{argmin}
+
+\pgfplotsset{every tick label/.append style={font=\tiny}}
+
+
+%}}}
+
+\begin{document}
+\maketitle
+
+\begin{frame}
+\tableofcontents
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Trounoi d'echecs}
+  \begin{block}{Exercice}
+    \small
+    Un tournoi d'échecs est organisé selon les règles suivantes:
+    \begin{enumerate}
+      \item \textbf{Bo} et \textbf{Ci},les deux challengeurs de l'année dernière,
+      jeuent a un match de \textbf{deux parties}.
+    \item Si l'un deux gagnent les deux parties, il joue un autre match de
+      \textbf{deux parties} contre
+      \textbf{AI} le teneur du titre.
+    \item Dans le match contre \textbf{AI}, il retient son titre en cas de gain
+      ou d'égalité.
+    \item La challengeur retient le titre s'il bat \textbf{AI} dans les deux
+      parties.
+    \end{enumerate}
+  \end{block}
+
+    On as les donnes suivantes:
+    \begin{itemize}
+      \item Bo peut vaincre  CI avec une urobiline $\mathbf{0.6}$.
+      \item Ai peut vaincre Bo avec une probabilité $\mathbf{0.5}$.
+      \item Ai peut vaincre Ci avec un probabilité $\mathbf{0.7}$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Question}
+  \begin{block}{Questions}
+\small
+ \begin{enumerate}
+   \item Déterminer les probabilités que:
+     \begin{itemize}
+       \item Le match sera décide dans le deuxième rond.
+       \item  Bo va gagner le premier rond.
+       \item Ai retient son titre.
+     \end{itemize}
+    \item Maintenant on sait qu'a atteint le deuxième rond.
+      \begin{itemize}
+        \item Calculer la probabilité que Bo qui va jouer contre Ai.
+        \item Ai retient son titre.
+      \end{itemize}
+    \item Sachant maintenant qu'on as atteint le deuxième rond, et qu'il est
+      decide dans un seul match.
+      \begin{itemize}
+        \item Quelle est la probabilité que c'est Bo qui a gagne.
+      \end{itemize}
+ \end{enumerate}   
+  \end{block}
+\end{frame}
+
+  \begin{frame}[t]
+    \frametitle{Problème Monty Hall }
+   \begin{block}{Problème Monty Hall}
+    \scriptsize
+    Le problème classique \alert{\textbf{Monty Hall}}  est un problème classique
+    trouvant ces racines d'un \textbf{jeu televise Americain}. Dans ce jeu, on
+    vous présente \textbf{trois} portes. On vous promet que l'une de ces portes
+    contient une \alert{recompense}.\\[4pt]
+    \begin{enumerate}
+      \scriptsize
+      \item Vous pointez le doigt sur une première porte.\\[4pt]
+      \item Une fois choisi, l'animateur ouvre l'\textbf{une des deux
+        portes}\\[4pt]
+      \item On vous demande alors, si vous voulez préservez votre choix, ou le
+        \textbf{changer}.
+        restantes.
+    \end{enumerate}
+   \end{block} 
+    On considère alors les deux stratégies:
+
+    \begin{enumerate}
+      \scriptsize
+      \item Toujours garder le premier choix. ( i.e ne pas changer)
+      \item Changer a l'autre porte fermée.
+    \end{enumerate}
+    \centering
+    \alert{\textbf{Quelle est la meilleure stratégie?}} 
+  \end{frame}
+
+  \begin{frame}[t]
+    \frametitle{Marche aléatoire}
+    
+    \begin{block}{Marche aléatoire}
+      \scriptsize
+      On imagine une personne \textbf{ivre} qui se déplace tout au lent d'une
+      \alert{\textbf{ligne droite}}. Il arrive a maintenir sa balance, cependant
+      il contrôle par sa direction (i.e Il peut avancer comme il peut
+      reculer).\\[4pt]
+
+      \begin{itemize}
+        \scriptsize
+        \item On suppose qu'il peut avancer avec un probabilité $\mathbf{p}$.
+        \item Ainsi il peut reculer par une probabilité $\mathbf{1-p}$.
+      \end{itemize}
+    \end{block}
+
+    \vspace*{.5cm}
+    \begin{enumerate}
+      \scriptsize
+      \item Calculer la probabilité qu'après  \alert{\textbf{deux pas}}, cet
+        ivre sera a sa \textbf{position initiale}.\\[4pt]
+      \item Quelle est la probabilité qu'après \alert{\textbf{trois pas}}, il
+        sera un \textbf{pas devant}?\\[4pt]
+      \item Maintenant on suppose qu'après \textbf{trois pas}, il as
+        effectivement terminé devant.
+        \begin{itemize}
+          \scriptsize
+          \item Quelle est la probabilité que le premier pas est
+            \textbf{devant}?
+        \end{itemize}
+
+    \end{enumerate}
+  \end{frame}
+\end{document}
