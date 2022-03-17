@@ -39,8 +39,6 @@
 
 
 %acronyms
-\acrodef{MRF}{Markov Random Fields}
-\acrodef{GNC}{Graduation nonconvexity}
 
 
 % add bibliography
@@ -53,13 +51,13 @@
 \tableofcontents
 \end{frame}
 
-\section{Independence de deux variabbles}
+\section{Indépendance de deux variabbles}
 
 \begin{frame}[t]
   \frametitle{Un simple modele de conditionnement}
   \begin{itemize}
   \small
-  \item Lance d'un de \textbf{trucke} avec $\mathbf{P}(H)=p$ et $\mathbf{P}(T)=
+  \item Lancé d'un dé \textbf{truqué} avec $\mathbf{P}(H)=p$ et $\mathbf{P}(T)=
     1 - p$.
   \end{itemize}
  \begin{columns}
@@ -70,17 +68,17 @@
    \begin{column}{0.6\textwidth}
     \begin{itemize}
       \scriptsize
-      \item Regle de multiplication:
+      \item Règle de multiplication:
         $$
         \mathbf{P}(THT) = 
         $$
-      \item Loi de probabilite totale:
+      \item Loi de probabilité totale:
         $$
         \mathbf{P}(\text{Un seul H}) = 
         $$
-      \item Regle de Bayes
+      \item Règle de Bayes
         $$
-        \mathbf{P}(\text{premier lance est H}\;|\;  \text{ 1 seul H}) = 
+        \mathbf{P}(\text{premier lancé est H}\;|\;  \text{ 1 seul H}) = 
         $$
 
     \end{itemize} 
@@ -89,30 +87,30 @@
 \end{frame}
 
 \begin{frame}[<+->]
-  \frametitle{Independence de deux evenements}
+  \frametitle{Indépendance de deux évènements}
 
   \begin{columns}
     \begin{column}{0.6\textwidth}
       \begin{itemize}
         \scriptsize
-        \item \textbf{Definition intuitive}: $\mathbf{P}(B|A) = P(B)$.
+        \item \textbf{Définition intuitive}: $\mathbf{P}(B|A) = P(B)$.
           \begin{itemize}
             \tiny
-            \item L'occurence de A nous donne auccune information sur $B$.
+            \item L'occurence de A nous donne aucune information sur $B$.
           \end{itemize}
         \pause 
           \begin{block}{Definition}
             \scriptsize
-            Deux evenements $A$ et $B$ sont \alert{\textbf{independents}} 
+            Deux évènements $A$ et $B$ sont \alert{\textbf{indépendants}} 
             $$
             \mathbf{P}(A\cap B) = \mathbf{P}(A).\mathbf{P}(B)
             $$
           \end{block}
       \begin{itemize}
         \scriptsize
-        \item Symmetrique par rapport a $A$ et $B$.\\[8pt]
+        \item Symétrique par rapport a $A$ et $B$.\\[8pt]
         \item  Implique directement que  $\mathbf{P}(B|A) = P(B)$.\\[8pt]
-        \item S'applique meme si $P(A) = 0$.
+        \item S'applique même si $P(A) = 0$.
       \end{itemize}
             
       \end{itemize}
@@ -129,39 +127,39 @@
   \frametitle{Exemples}
  \begin{block}{Exemple 1}
   \scriptsize 
-On possede une piece de monnaie truquee qu'on lance deux fois. Dans le premier
-lance on peut obtenir soit $H$ soit $T$ avec une probabilite $\frac{1}{2}$.
-Cependant le deuxieme lance donne toujours le resultat du lance 1. Ainsi les
-deux resultats possibles sont $\{HH, TT\}$.
+On possède une pièce de monnaie truquée qu'on lance deux fois. Dans le premier
+lancé on peut obtenir soit $H$ soit $T$ avec une probabilité $\frac{1}{2}$.
+Cependant le deuxieme lance donne toujours le résultat du lancé 1. Ainsi les
+deux résultats possibles sont $\{HH, TT\}$.
 \begin{itemize}
-  \item Est que l'evenement $A=\{\text{H dans le premier lance}\}$ et
-    $B=\{\text{H dans le deuxieme lance}\}$ sont independents?
+  \item Est que l'évènement $A=\{\text{H dans le premier lancé}\}$ et
+    $B=\{\text{H dans le deuxieme lance}\}$ sont indépendants?
 \end{itemize}
  \end{block} 
 
  \pause
  \begin{block}{Exemple 2}
    \scriptsize
-   Soit $A$ un evenement de l'espace d'etats $\Omega$.\\[4pt]
+   Soit $A$ un évènement de l'espace d'états $\Omega$.\\[4pt]
   \begin{itemize}
-    \item Est que $A$ et $\Omega$ sont indpendents? \end{itemize}
+    \item Est que $A$ et $\Omega$ sont indépendants? \end{itemize}
  \end{block}
 \end{frame}
 
 \begin{frame}[t]
-  \frametitle{Indpendence deux evenements}
+  \frametitle{Indépendance deux évènements}
   \small
-          \begin{block}{Definition}
+          \begin{block}{Définition}
             \scriptsize
-            Deux evenements $A$ et $B$ sont \alert{\textbf{independents}} 
+            Deux évènements $A$ et $B$ sont \alert{\textbf{indépendants}} 
             $$
             \mathbf{P}(A\cap B) = \mathbf{P}(A).\mathbf{P}(B)
             $$
           \end{block}
 
           \begin{itemize}
-            \item Si $A$ et $B$ sont independents, alors $A$ et $B^c$ sont
-              independents?
+            \item Si $A$ et $B$ sont indépendants, alors $A$ et $B^c$ sont
+              indépendants?
           \end{itemize}
           \pause
           \begin{eqnarray*}
@@ -175,20 +173,20 @@ deux resultats possibles sont $\{HH, TT\}$.
           \pause
           \begin{block}{Mini exercice}
             \scriptsize
-            On suppose que $A$ et $B$ sont independents. Est que $A^c$ et $B^c$ sont
-            independent?
+            On suppose que $A$ et $B$ sont indépendants. Est que $A^c$ et $B^c$ sont
+            indépendant?
             
           \end{block}
   
 \end{frame}
-\section{Independence conditionnelle}
+\section{Indépendance conditionnelle}
 
 \begin{frame}[t]
-  \frametitle{Independence conditionnelle}
- \begin{block}{Definition}
+  \frametitle{Indépendance conditionnelle}
+ \begin{block}{Définition}
    \scriptsize
-   L'independence \textbf{conditionnelle} est definie en utilisant les
-   probablites conditionnelles etant donne $P(.\;|\;C)$.
+   L'indépendance \textbf{conditionnelle} est définie en utilisant les
+   probabilités conditionnelles étant donné $P(.\;|\;C)$.
    \begin{equation*}
     P(A\cap B \;|\; C) = P(A\;|\;C).P(B\;|\;C) 
    \end{equation*}
@@ -201,35 +199,35 @@ deux resultats possibles sont $\{HH, TT\}$.
    \begin{column}{0.5\textwidth}
    \begin{itemize}
      \tiny
-     \item  On suppose que $A$ et $B$ sont independents.
+     \item  On suppose que $A$ et $B$ sont indépendants.
    \end{itemize}  
    \begin{column}{0.5\textwidth}
       \includegraphics[width=4cm]{independence_vs_conditional.png}
       \begin{itemize}
         \scriptsize
-        \item Si $C$ est realise, a t on toujours l'independence?
+        \item Si $C$ est réalisé, a t on toujours l'indépendance?
       \end{itemize}
    \end{column}
    \end{column}
  \end{columns}
 \end{frame}
-\section{Indepence collection d'evenements}
+\section{Indépendance collection d'évènements}
 \begin{frame}[t]
-  \frametitle{Independence plusieurs evenements}
+  \frametitle{Independence plusieurs évènements}
  \begin{itemize}
    \small
-   \item \textbf{Definition Intuitive}: L'information sur quelque evenements ne
-     change par les probabilites des autres evenements.
+   \item \textbf{Définition Intuitive}: L'information sur quelque évènements ne
+     change par les probabilités des autres évènements.
      \pause
-     \begin{block}{Definition}
+     \begin{block}{Définition}
       \scriptsize 
-      Plusieurs Evenements $A_1$, $A_2,\ldots, A_n$ sont dits
-      \alert{\textbf{independents}} si:
+      Plusieurs Évènements $A_1$, $A_2,\ldots, A_n$ sont dits
+      \alert{\textbf{indépendants}} si:
 
       \begin{equation*}
         \alert{P(A_i\cap A_j\cap \ldots A_m) = P(A_i)P(A_j)\ldots P(A_m)} .
       \end{equation*}
-pour tous les indices distints $i,j,\ldots, m$
+pour tous les indices distincts $i,j,\ldots, m$
      \end{block}
 \pause
      \begin{itemize}
@@ -246,25 +244,25 @@ $$
      \end{itemize}
  \end{itemize} 
 \end{frame}
-\section{Indepenence deux a deux.}
+\section{Indépendance deux a deux.}
 \begin{frame}[t]
-  \frametitle{Indepence et independence deux a deux}
+  \frametitle{Indépendance et indépendance deux a deux}
 
   \begin{columns}
     \begin{column}{0.5\textwidth}
       \begin{itemize}
         \small
-        \item Lance deux piece de monnaies:
+        \item Lance deux pieces de monnaie:
           \begin{itemize}
             \small
             \item $\alert{H_1}$: premier lance est H.
-            \item $\alert{H_2}$: deuxieme lance est H.
+            \item $\alert{H_2}$: deuxième lance est H.
           \end{itemize}
           \begin{equation*}
           P(\alert{H_1})=P(\alert{H_2}) =  \frac{1}{2}
           \end{equation*}
           \pause
-        \item $\mathbf{C}$: Les deux lances produisent le meme resultat.
+        \item $\mathbf{C}$: Les deux lancés produisent le même résultat.
       \end{itemize}
     \end{column}
     \begin{column}{0.5\textwidth}
@@ -286,16 +284,53 @@ $$
   \vspace*{1cm}
   \pause
   \begin{itemize}
-    \item Est que $H_1$, $H_2$ et $H_3$ sont independents \textbf{deux a
+    \item Est que $H_1$, $H_2$ et $H_3$ sont indépendants \textbf{deux a
       deux}?\\[8pt]
-    \item Est qu'il sont indepenents?
+    \item Est qu'il sont indépendants?
   \end{itemize}
 \end{frame}
-\section{Quelque problemes}
+\section{Quelque problèmes}
 
+\section{Fiabilité}
+\begin{frame}[t]
+  \frametitle{Fiabilité}
+ \begin{block}{Présentation}
+   \scriptsize
+   Problème ou on connecte des entités par des liens qui possèdent une
+   probabilité $\alert{p_i}$ de fonctionner (\textbf{Up}).
+ \end{block} 
+ \begin{center}
+   \includegraphics[width=3cm, height=3cm]{graph_example.png}
+ \end{center}
+ \pause
+ \begin{columns}
+   \begin{column}{0.5\textwidth}
+     \begin{center}
+     \begin{tikzpicture}[scale=0.7, transform shape]
+       \node[obs] (A) at (0,0) {$p_1$};
+       \node[obs] (B) at (2,0) {$p_2$};
+       \node[obs] (C) at (4,0) {$p_2$};
+       \path[draw] (-1,0)-- (A)  -- (B) -- (C) -- (5,0);
+     \end{tikzpicture}
+     \end{center}
+   \end{column}
+   \begin{column}{0.5\textwidth}
+     \pause
+     \begin{center}
+     \begin{tikzpicture}[scale=0.5, transform shape]
+       \node[obs] (A) at (0,0) {$p_1$};
+       \node[obs] (B) at (0,-2) {$p_2$};
+       \node[obs] (C) at (0,2) {$p_2$};
+       \path[draw] (-4,0)-- (A) --  (4,0);
+       \path[draw] (-4,0)-- (-2,0) -- (-2,2)-- (C) --  (2,2)--(2,0)--(4,0);
+       \path[draw] (-4,0)-- (-2,0) -- (-2,-2)-- (B) --  (2,-2)--(2,0)--(4,0);
+     \end{tikzpicture}
+     \end{center}
+   \end{column}
+ \end{columns}
+\end{frame}
 \begin{frame}[t]
   \frametitle{Probleme des freres du roi.}
- 
   \begin{block}{Probleme}
     Un roi vient d'une famille de deux enfants.\\[4pt]
     \begin{itemize}
