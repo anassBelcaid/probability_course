@@ -1,0 +1,156 @@
+%%% Laboratory	 Notes
+%%% Template by Mikhail Klassen, April 2013
+%%% Contributions from Sarah Mount, May 2014
+\documentclass[a4paper]{tufte-handout}
+\usepackage{tikz}
+
+\newcommand{\workingDate}{\textsc{April $|$ 2022}}
+\newcommand{\userName}{A.Belcaid}
+\newcommand{\institution}{ENSA-Safi}
+
+\usepackage{lab_notes}
+
+\usepackage{hyperref}
+\hypersetup{
+    pdffitwindow=false,            % window fit to page
+    pdfstartview={Fit},            % fits width of page to window
+    pdftitle={Correction TD3},     % document title
+    pdfauthor={A.Belcaid},         % author name
+    pdfsubject={},                 % document topic(s)
+    pdfnewwindow=true,             % links in new window
+    colorlinks=true,               % coloured links, not boxed
+    linkcolor=DarkScarletRed,      % colour of internal links
+    citecolor=DarkChameleon,       % colour of links to bibliography
+    filecolor=DarkPlum,            % colour of file links
+    urlcolor=DarkSkyBlue           % colour of external links
+}
+
+
+\title{Solution TD 3}
+\date{2022}
+
+\begin{document}
+\maketitle
+
+\renewcommand{\P}{\mathbf{P}}
+
+\section{Exercice 1}
+
+\begin{enumerate}
+  \item \textbf{Correct}, car les elements dans $B$ maintienent la meme
+    proportion que dans la loi originale.\\
+  \item \textbf{Fausse}, car les elements qui ne sont pas dans $B$ possedent une
+    probabilite nulle!
+\end{enumerate}
+
+\section{Exercice 2}
+\begin{enumerate}
+  \item Calculer la probabilite de trouver un \textbf{double}.
+    $$
+    \P(D=\text{\small obtenir un doubble}) = \frac{6}{36} = \frac{1}{6}
+    $$
+  \item  On note l'evenement $S=$"somme $leq$ 4".
+    $$
+    \P(D | S) = \frac{\P(D\cap S)}{\P(S)} = \frac{\frac{2}{36}}{\frac{6}{36}}=
+    \frac{1}{3}.
+    $$
+  \item Soit l'evenement $S=$ "{\small obtenir 6 dans l'un des deux des}"
+    Alors il suffit de compter toutes les paires pour obtenir que:
+
+    $$
+    \P(S) = \frac{11}{36}
+    $$
+  \item Calculer la probabilite d'obtenir un $6$ sachant qu'un on as pas un
+    double.
+
+    $$
+    \P(S | D^c) = \frac{\P(S \cap D^c)}{\P(D^c)} =
+    \frac{\frac{10}{36}}{\frac{30}{36}} = \frac{1}{3}
+    $$
+\end{enumerate}
+\section{Exercice 3}
+On note $A_i$ l'evenement de selection de la piece de monnaie $i$. En utilisant
+lsda loi de probabilite totale for l'infinite des scenarios, on obtient:
+
+\begin{eqnarray*}
+  \P(\text{\small Pile})  & = & \sum_{i=1}^\infty \P(A_i)\P(\text{\small
+  Pile}\;|\;A_i)\\
+                          & = & \sum_{i=1}^\infty 2^{-i}3^{-i}\\
+                          & = & \frac{\frac{1}{6}}{1 - (\frac{1}{6})}\\
+                          & = & \frac{1}{5}
+\end{eqnarray*}
+
+\section{Exercice 4}
+On note $A$ l'evenement qu'une personne soit malade. et $B$ que le test soit
+positif.\\
+
+\begin{enumerate}
+  \item 
+    \begin{eqnarray*}
+      \P(B) & = & \P(A)\P(B\;|\;A)  + \P(A^c)\P(B\;|\;A^c)\\
+            & = & 0.001\cdot 0.95\;+\; 0.999\cdot 0.05\\
+            & = & 0.0509
+    \end{eqnarray*}
+  \item 
+ \begin{eqnarray*}
+   \P(A\;|\;B) &=& \frac{\P(A)\P(B\;|\;A)}{\P(B)} \\
+               &=& \frac{0.001\cdot 0.95}{.0509}\\
+               &=& 0.01866
+ \end{eqnarray*}
+
+  { \scriptsize
+   On remarque que meme si la precision de ce test est tres elevee. Une personne
+   teste positive a peu de chance d'etre malade ($2\%$). L'explication est la
+   frequence de la maladie qui est de $\frac{1}{1000}$. On s'attend que
+   $1000 \cdot 0.999\cdot 0.05\approx 50$ de tester positive sans qu'ils soit
+   malades!!
+ }
+ 
+\end{enumerate}
+
+\hrule
+
+\section{Exercice 5}
+\begin{enumerate}
+  \item
+\begin{enumerate}
+  \item La reponse est \textbf{non}.\\
+    On note 
+    \begin{itemize}
+      \item $A$: l'evenement que la somme est $10$.
+      \item $C$: l'un des deux des est $5$.
+    \end{itemize}
+    On as:
+    $$
+    \P(A) = \frac{1}{25} \quad \text{ et }\quad \P(C) = \frac{5}{10}
+    $$
+    Or on sait que 
+    $$
+    \P(A\cap C) = \P(A) = \frac{1}{25} \neq \P(A)\cdot\P(C)
+    $$
+  \item Aussi c'est \textbf{Faux}.\\
+    On note:
+    \begin{itemize}
+      \item $D$: L'evenement que l'un des resultat est $1$.
+    \end{itemize}
+    on as 
+    $$
+    \P(D) = \frac{9}{25}
+    $$
+
+    $$
+    \P(A\cap D) = \P(\emptyset) = 0  \neq \P(A)\cdot\P(D)
+    $$
+\end{enumerate}
+\item Suivre la meme analyse, on note $B=\{\text{\small la somme est 8}\}$ et
+  $E=\{\text{\small obtenir un double}\}$
+  $$
+  \P(B) = \frac{3}{25} \quad \text{ et } \quad \P(E) = \frac{1}{5}
+  $$
+
+  On as alors
+  $$
+  \P(B\cap E) = \P(\{(4,4)\}) = \frac{1}{25}\neq \P(B)\cdot \P(E)
+  $$
+\end{enumerate}
+\end{document}
