@@ -7,7 +7,7 @@
 
 \newcommand{\hwname}{ENSA-Safi}
 \newcommand{\hwemail}{}
-\newcommand{\hwtype}{Travaux Dirigés : Variable Aleatoire}
+\newcommand{\hwtype}{Travaux Dirigés : Variable Aléatoire}
 \newcommand{\hwnum}{6}
 \newcommand{\hwclass}{ Prob}
 \newcommand{\hwlecture}{ 6 }
@@ -18,9 +18,9 @@
 \begin{document}
 \maketitle
 
-\question*{Loi de probabilite}
+\question*{Loi de probabilité}
 
-Soit la variable aleaotoire $\mathbf{X}$  et sa loi de probabilite:
+Soit la variable aléatoire $\mathbf{X}$  et sa loi de probabilité:
 
 \begin{equation}
   P_X(x) = \begin{cases}
@@ -28,23 +28,69 @@ Soit la variable aleaotoire $\mathbf{X}$  et sa loi de probabilite:
     0             & \text{sinon}
   \end{cases}
 \end{equation}
-ou $a > 0$ est un parametre reel.
+ou $a > 0$ est un paramètre réel.
 
 \begin{arabicparts}
-    \item Determiner la valeur de $a$.
-    \item Donner la loi de probabilite de la varaible aleatoire $Z = X^2$.
+    \item Déterminer la valeur de $a$.
+    \item Donner la loi de probabilité de la variable aléatoire $Z = X^2$.
 \end{arabicparts}
 
-\question*{Loi d'un de truque}
+\question*{Loi d'un dé truqué}
 On considère un dé cubique truqué dont les faces sont numérotés de $1$ à $6$ et
 on note $X$ la variable aléatoire donnée par le numéro de la face du dessus. On suppose que le dé est truqué de sorte que la probabilité d'obtenir une face est proportionnelle au numéro inscrit sur cette face.
 
 
 \begin{arabicparts}
-\item Determiner la loi de $X$.
-\item Calculer son esperance.
-\item On pose $Y = \frac{1}{X}$, determiner la loi de $Y$ et son esperance.
+\item Déterminer la loi de $X$.
+\item Calculer son espérance.
+\item On pose $Y = \frac{1}{X}$, déterminer la loi de $Y$ et son espérance.
   
+\end{arabicparts}
+
+
+\question*{Cles}
+
+Une personne a quatre clés mais \textbf{une seule} ouvre la porte. Elle les
+essaie au hasard en éliminant celles qui ne fonctionnent pas.\\
+
+Soit \textbf{X} "Le nombre d'essais pour ouvrir la porte" qui est une variable
+aléatoire.
+
+\begin{arabicparts}
+    \item Déterminer la loi de probabilité de $X$.
+    \item Calculer $\mathbf{E}(X)$ et $\mathbf{Var}(X)$.
+\end{arabicparts}
+
+
+\question*{Loi de Pacal}
+
+On considère une série d'épreuves indépendants. A chaque  épreuve, on observe un
+\textbf{succes} avec une probabilité $\mathbf{p}$ et un échec avec une probabilite
+$\mathbf{1-p}$.\\
+
+On considère la variable aléatoire $\mathbf{X}$:
+
+$X$ = "nombre d'épreuves nécessaires pour obtenir le premier succès".\\
+
+\begin{arabicparts}
+    \item Donner la loi de probabilité de $X$.
+    \item Vérifier que $\mathbf{E}(X) = \frac{1}{p}$.
+    \item Vérifier la propriété d'\textbf{absence de mémoire}
+      $$
+      \mathbf{P}(X > k\;|\; X > j) = \mathbf{P}(X >  k-j )\quad k > j
+      $$
+    \item Vous décidez de vendre votre maison et d'accepter  la premiere offre
+      d'achat supérieure a $\mathbf{K}$ DH. ou $K$ est fixe. On suppose que les
+      offres d'achats sont des variables aléatoires indépendants dont on suppose
+      la loi de probabilité est connue.\\
+
+      Soit $\mathbf{N}$ la variables aléatoire qui représente le nombre
+      d'offres reçues avant de vendre la maison.
+
+      \begin{arabicparts}
+      \item Donner la loi de probabilite de $\mathbf{N}$.
+      \item Donner son esperance?
+      \end{arabicparts}
 \end{arabicparts}
 
 

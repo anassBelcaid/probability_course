@@ -14,7 +14,7 @@
 \hypersetup{
     pdffitwindow=false,            % window fit to page
     pdfstartview={Fit},            % fits width of page to window
-    pdftitle={Correction TD4},     % document title
+    pdftitle={Correction TD 6},     % document title
     pdfauthor={A.Belcaid},         % author name
     pdfsubject={},                 % document topic(s)
     pdfnewwindow=true,             % links in new window
@@ -123,8 +123,8 @@ On obtient ainsi la loi suivante:
 
 \begin{table}[htpb]
   \centering
-  \caption{ Loi de distribution du de}
-
+  % \caption{ Loi de distribution du de}
+  $$
   \begin{array}{ccccccc}
     \toprule
     k & 1 & 2 & 3 & 4 & 5 & 6\\[4pt]
@@ -133,6 +133,7 @@ On obtient ainsi la loi suivante:
     \frac{5}{21} & \frac{6}{21}\\[4pt]
     \bottomrule
   \end{array} 
+  $$
 \end{table}
 
 Calculons maintenant l'\textbf{esperance} de $X$.
@@ -151,7 +152,7 @@ par:
   \centering
   \caption{Loi de probaiblite de $Y$}
   \label{tab:label}
-  
+  $$
   \begin{array}{ccccccc}
     \toprule
     \frac{1}{k} & \frac{1}{1} & \frac{1}{2} & \frac{1}{3} & \frac{1}{4} &
@@ -160,8 +161,8 @@ par:
     \P_Y(=k) & \frac{1}{21}& \frac{2}{21} & \frac{3}{21} & \frac{4}{21} &
     \frac{5}{21} & \frac{6}{21}\\[4pt]
     \bottomrule
-
   \end{array}
+  $$
 \end{table}
 
 Si on calcule l'esperance de $Y$, on trouve:
@@ -171,8 +172,87 @@ Si on calcule l'esperance de $Y$, on trouve:
 
 Le but est d'introduire aux etudiantes l'erreur classique que 
 $$
-\mathbf{E}(g(X))  \neq g(\mathbbf{E}(X))
+\mathbf{E}\left(g\left(X\right)\right)  \neq g(\mathbf{E}\left(X\right))
 $$
+
+\section{Cles}
+
+\begin{enumerate}
+  \item 
+Calculer la loi de probabilite de $X$, revient a calculer les nombres
+$\mathbf{P}(X=k)$ pour $k = 1, 2,3,4$.
+
+on as 
+\begin{eqnarray*}
+  \mathbf{P}(X = 1) & = & \frac{1}{4}\\
+  \mathbf{P}(X = 2) & = & \frac{3}{4}\cdot\frac{1}{3} = \frac{1}{4}\\
+  \mathbf{P}(X = 3) & = & \frac{3}{4}\cdot\frac{2}{3}\cdot\frac{1}{2} = \frac{1}{4}\\
+  \mathbf{P}(X = 4) & = &\frac{3}{4}\cdot\frac{2}{3}\cdot\frac{1}{2} = \frac{1}{4} \\
+\end{eqnarray*}
+Ainsi $X$ une variable uniforme de parametres $\{1, 4\}$.
+\item Pour le calcul, de l'esperance, on peut soit 
+  \begin{itemize}
+    \item Calculer directement:
+      $$
+      \mathbf{E}(X) = \sum_x P_X(x)x = \frac{1}{4} + \frac{2}{4} + \frac{3}{4} +
+      \frac{4}{4} = \frac{5}{2}
+      $$
+    \item Soit utiliser le resultat demontre qui indique que:
+
+      $$
+      \mathbf{E}(X) = \frac{a +b}{2} = \frac{5}{2}
+      $$
+  \end{itemize}
+\item Calculons maintenant la \textbf{variance} de $X$:
+      
+    \begin{eqnarray*}
+      \textbf{Var}(X) &=& \textbf{E}(X^2) - (\mathbf{E}(X))^2\\
+                      &=& \frac{1}{4}\left(1 + 4 + 9 + 16\right)- \frac{5}{2}\\
+                      &=& \frac{5}{4}
+    \end{eqnarray*}
+\end{enumerate}
+
+\section{Loi de Pascal}
+
+\begin{enumerate}
+  \item Calculer de la loi de $X$.
+    On as 
+    \begin{eqnarray*} 
+      \mathbf{P}(X = k) &=& \mathbf{P}(\text{ k-1 Echecs puis success})\\
+                        &=& (1-p)^{k-1}p
+    \end{eqnarray*}
+    C'est la loi \textbf{geometrique}.
+  \item Calculons l'esperance de $X$. On pose tout d'abord $\mathbf{q = 1-p}$.
+    \begin{eqnarray*}
+      \mathbf{E}(X) &=& \sum_{k=1}^\infty k (1-p)^{k-1}\;p\\
+                    &=& p \sum_{k=1}^\infty k\;q^{k-1}\\
+                    &=& p \sum_{k=1}^\infty \frac{d}{dq}q^k\\
+                    &=& p \frac{d}{dq} \sum_{k=1}^\infty q^k\\
+                    &=& p \frac{d}{dq}\left(\frac{q}{1-q}\right)\\
+                    &=& p \frac{1}{(1-q)^2}\\
+                    &=& \frac{1}{p}
+    \end{eqnarray*}
+  \item On demontre la propriete de \textbf{sans memoire} de cette loi. Soient
+    $k > j $.  On calcul
+    \begin{eqnarray*}
+      \mathbf{P}(X > k \;|\; X > j) &=& \frac{\mathbf{P}\left( (X>k) \cap (X >
+      j)\right)}{\mathbf{P}(X > j)}\\[4pt]
+       &=& \frac{\mathbf{P}\left( (X>k)\right)}{\mathbf{P}(X > j)}\\[4pt]
+       &=& \frac{(1-p)^k}{(1-p)^j}\\
+       &=& (1-p)^{k-j}\\
+       &=& \mathbf{P}(X > k -j)
+    \end{eqnarray*}
+  \item Soit $Y$ la variable aleatoire de l'offre d'achat. On pour chaque entier
+    $n$ on as:
+
+    $$
+    \mathbf{P}_N(N = n) = \left(\mathbf{P}(Y < K)\right)^{n-1}\underbrace{\mathbf{P}\left(Y>K\right)}_{p}
+    $$
+    Ainsi $N$ est est une variable aleatoire qui suit une loi
+    \textbf{geometrique} de parametre $p$.\\
+
+  Son esperance est donne par $\frac{1}{p}$.
+\end{enumerate}
 \end{document}
 
 
