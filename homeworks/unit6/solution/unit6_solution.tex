@@ -7,6 +7,7 @@
 \newcommand{\workingDate}{\textsc{April $|$ 2022}}
 \newcommand{\userName}{A.Belcaid}
 \newcommand{\institution}{ENSA-Safi}
+\newcommand{\E}{\mathbf{E}}
 
 \usepackage{lab_notes}
 
@@ -33,6 +34,7 @@
 \maketitle
 
 \renewcommand{\P}{\mathbf{P}}
+% \tikzstyle{probM}[draw]
 
 \section{Loi de probabilite}
 
@@ -175,6 +177,74 @@ $$
 \mathbf{E}\left(g\left(X\right)\right)  \neq g(\mathbf{E}\left(X\right))
 $$
 
+
+\section{Deux des a trois faces}
+
+\begin{itemize}
+  \item L'espace d'etats des variablesd $(X_1,X_2)$ possedent $9$ resultat
+    equiprobables. On peut constuire la loi de la variable $X$ pour chaque
+    valeur que peut prendre cette variable aleatoire. on obtient alors:
+
+    $$
+    \P_X(x) =\begin{cases}
+      \frac{1}{9} & x\in \{-2,2\}\\[4pt]
+      \frac{2}{9} & x\in \{-1, 1\}\\[4pt]
+      \frac{3}{9} & x = 0\\[4pt]
+      0           & \text{sinon}
+    \end{cases}
+    $$
+
+    Pour l'esperance on as:\footnote{On peut voir aussi que l'esperance est
+    nulle car la loi est centree en $0$. Ou parce que $\E[X_1]= \E[X_2]$ ainsi
+  on obtient $\E[X_1 - X_2] = \E[X_1] - \E[X_2] = 0$.}
+
+\begin{eqnarray*}
+  \E[X] & = & \sum_{x=-2}^2  x\P_X(x)\\[4pt]
+        & = & (-2)\cdot \frac{1}{9} + (-1)\cdot \frac{2}{9} + 
+(0)\cdot \frac{3}{9} + (1)\cdot \frac{2}{9} + (2)\cdot \frac{1}{9}\\
+        & = & 0
+\end{eqnarray*}
+
+
+Pour calculer la \textbf{variance}, on calcule tout d'abord 
+
+\begin{eqnarray*}
+  \E[X^2] & = & \sum_x x^2\P_X(x)   \\[4pt]
+          & = & (4)\cdot\frac{1}{9} + (1)\cdot\frac{2}{9} + 
+(0)\cdot\frac{3}{9} + (1)\cdot\frac{2}{9} + (4)\cdot\frac{1}{9}\\
+          & = & \frac{4}{3}
+\end{eqnarray*}
+
+\item On pose $Y=X^2$ et on construit la loi de $Y$ en calculant les
+  probabilites de toutes les valeurs de $Y$.
+
+  \begin{equation*}
+    \P_Y(y) = \begin{cases}
+      \frac{2}{9}  & y = 4\\[2pt]
+      \frac{4}{9}  & y = 1 \\[2pt]
+      \frac{3}{9}  & y = 0 \\[2pt]
+      0            & \textbf{sinon}
+    \end{cases}
+  \end{equation*}
+
+  \begin{marginfigure}
+      \centering
+      \begin{tikzpicture}
+        \draw[thick] (-1,0) -- (5,0)node[label=right:{$Y$}]{};
+        \draw[draw,thick] (0,0) -- (0,3)node[label=above:{$\frac{3}{9}$},
+          fill=gray,draw,circle]{};
+
+        \draw[draw,thick] (1,0) -- (1,4)node[label=above:{$\frac{4}{9}$},
+          fill=gray,draw,circle]{};
+
+        \draw[draw,thick] (4,0) -- (4,2)node[label=above:{$\frac{2}{9}$},
+          fill=gray,draw,circle]{};
+      \end{tikzpicture}
+      \caption{Loi de probabilite de $Y$}
+  \end{marginfigure}
+  
+
+\end{itemize}
 \section{Cles}
 
 \begin{enumerate}
@@ -253,6 +323,76 @@ Ainsi $X$ une variable uniforme de parametres $\{1, 4\}$.
 
   Son esperance est donne par $\frac{1}{p}$.
 \end{enumerate}
+
+\section{Couple de variables}
+
+\begin{itemize}
+  \item A partir de loi jointe de $X$ et $Y$, les elements qui possedent une
+    masse sont $(1,1),\; (1,3),\; (2,1),\; (2,3),\; (4,1),\; (4,3)$. Puisque la
+    sommes des probabilites doit etre egale a $\mathbf{1}$, on obitent
+
+    \begin{eqnarray*}
+      c(1+1)^2 +  c(1+3)^2 + c(2+1)^2 + c(2+3)^2 +  c(4+1)^2 + c(4+3)^2 &=& 1\\
+      c\cdot(128) & = & 1
+    \end{eqnarray*}
+    Ainsi on obtient $c = \frac{1}{128}$.
+  \item Les seuls trois instances qui verifient $y < x$ sont $(2,1),\; (4,1),\;
+    (4,3)$.
+    Ob obtient alors:
+    $$
+    \P(Y < X) = \P_{XY}(2,1) + \P_{XY}(4,10 + \P_{XY}(4,3) = \frac{83}{128}
+    $$
+    
+  \item On possede un seul etat ou $X = Y$. avec $(x,y) = (1,1)$.
+    $$
+    \P(X = Y) = \P_{XY}(1,1) = \frac{4}{128}
+    $$
+
+  \item La loi de probabilite marginale de $X$ est donnee par $\P_X(x) = \sum_y
+    \P_{XY}(x,y).$. 
+
+    Si on applique cette regle pour $x=2$. on obtient
+
+    $$
+    \P_X(2) = \P_{XY}(2,1) + \P_{XY}(2,3) = \frac{34}{128}
+    $$
+
+    On peut construire toute la loi de $\P_X$:
+
+    $$
+    \P_X(x) = \begin{cases}
+      \frac{20}{128}   & \text{si } x =1\\
+      \frac{34}{128}   & \text{si } x =2\\
+      \frac{74}{128}   & \text{si } x =4\\
+      0    & \text{sinon } \\
+
+    \end{cases}
+    $$
+  \item On as :
+
+    $$
+    \E[X] = \sum_x x\P_X(x) = 1\cdot \frac{20}{128} + 2\cdot \frac{34}{128} +
+4\cdot \frac{74}{128} = 3
+    $$
+  \item On utilise la definition:
+
+    \begin{eqnarray*}
+      \E[XY] & = & \sum_x\sum_y xy\P_{XY}(x,y)  \\
+             & = & 1\cdot \frac{4}{128} + 2\cdot \frac{9}{128}
+             + 4\cdot \frac{25}{128} 
+            + 3\cdot \frac{16}{128}
+           + 6\cdot \frac{25}{128}
+           + 12\cdot \frac{49}{128}\\[4pt]
+             &= & \frac{227}{32}
+    \end{eqnarray*}
+  \item On utilise la definition directe de la variance:
+
+    $$
+    \text{Var}(X) = (1-3)^2 \frac{20}{128} + (2-3)^2 \frac{34}{128} + (4-3)^2
+    \frac{74}{128} = \frac{47}{128}
+    $$
+\end{itemize}
+
 \end{document}
 
 

@@ -12,6 +12,9 @@
 \newcommand{\hwclass}{ Prob}
 \newcommand{\hwlecture}{ 6 }
 \newcommand{\hwsection}{Z}
+\renewcommand{\P}{\mathbf{P}}
+\newcommand{\E}{\mathbf{E}}
+\newcommand{\var}{\text{\textbf{var}}}
 
 
 
@@ -48,6 +51,34 @@ on note $X$ la variable aléatoire donnée par le numéro de la face du dessus. 
 \end{arabicparts}
 
 
+\question*{Deux des a trois faces}
+
+On suppose qu'on dispose de \textbf{deux des} a trois faces. Ces faces seront
+indexées de $1$ a $3$. On lance les deux des indépendamment, et on note pour
+chaque $i=1,2$,  la variable aléatoire $X_i$ qui dénote le nombre de la face
+obtenue. On définit la variables aléatoire
+$$
+X = X_2 - X_1
+$$
+
+
+\begin{arabicparts}
+    \item Donner la valeur numérique des entités suivantes:
+
+      $$
+      \P_X(0)\;,\; \P_X(1)\;,\;\P_X(-2)\;,\; \P_X(3)\;,\;\E[X]\;,\;\var(X).
+      $$
+    \item On considère maintenant la variable aléatoire $Y=X^2$.
+      \begin{itemize}
+        \item Calculer les probabilités suivantes:
+          $$
+            \P_Y(0)\;,\; \P_Y(1)\;,\;\P_Y(-2)\
+          $$
+      \end{itemize}
+\end{arabicparts}
+
+
+
 \question*{Cles}
 
 Une personne a quatre clés mais \textbf{une seule} ouvre la porte. Elle les
@@ -65,7 +96,7 @@ aléatoire.
 \question*{Loi de Pacal}
 
 On considère une série d'épreuves indépendants. A chaque  épreuve, on observe un
-\textbf{succes} avec une probabilité $\mathbf{p}$ et un échec avec une probabilite
+\textbf{succes} avec une probabilité $\mathbf{p}$ et un échec avec une probabilité
 $\mathbf{1-p}$.\\
 
 On considère la variable aléatoire $\mathbf{X}$:
@@ -79,7 +110,7 @@ $X$ = "nombre d'épreuves nécessaires pour obtenir le premier succès".\\
       $$
       \mathbf{P}(X > k\;|\; X > j) = \mathbf{P}(X >  k-j )\quad k > j
       $$
-    \item Vous décidez de vendre votre maison et d'accepter  la premiere offre
+    \item Vous décidez de vendre votre maison et d'accepter  la première offre
       d'achat supérieure a $\mathbf{K}$ DH. ou $K$ est fixe. On suppose que les
       offres d'achats sont des variables aléatoires indépendants dont on suppose
       la loi de probabilité est connue.\\
@@ -88,10 +119,30 @@ $X$ = "nombre d'épreuves nécessaires pour obtenir le premier succès".\\
       d'offres reçues avant de vendre la maison.
 
       \begin{arabicparts}
-      \item Donner la loi de probabilite de $\mathbf{N}$.
-      \item Donner son esperance?
+      \item Donner la loi de probabilité de $\mathbf{N}$.
+      \item Donner son espérance?
       \end{arabicparts}
 \end{arabicparts}
 
 
+\question*{Couple de variables}
+oit les variables aléatoires $X$ et $Y$ avec la loi de probabilité:
+
+\begin{equation*}
+  \P_{X,Y}(x,y) = \begin{cases}
+    c\cdot ( x + y)^2 & \text{Si } x \in \{1,2,4\} \text{ et }
+    y\in\{1,3\}\\[4pt]
+    0 & \text{sinon}
+  \end{cases}
+\end{equation*}
+
+  \begin{arabicparts}
+      \item Calculer la valeur de $c$.
+      \item Calculer $\P(Y < X)$.
+      \item Calculer $\P(X = Y)$.
+      \item Calculer $\P(X=2)$ et $\P(x=3)$.
+      \item Calculer $\E[X]$ et $\E[XY]$.
+      \item Donner la $\var(X)$.
+  \end{arabicparts}
+  
 \end{document}
