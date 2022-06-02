@@ -1,0 +1,120 @@
+\documentclass[palatino,code]{ensaexam}
+%http://www.jaicompris.com/lycee/math/probabilite/loi-binomiale/loi-binomiale.php
+%http://www.jaicompris.com/lycee/math/probabilite/variable-aleatoire/variable-aleatoire.php
+
+\begin{document}
+\ModuleName{Probabilite}
+\ExamCode{CP224}
+\ExamPeriod{Spring 2022}
+\TimeAllowed{120}
+\Logo{
+\begin{center}
+  \includegraphics[width=3cm, height=3cm]{ENSA-SAFI.png}
+\end{center}
+}
+\Instructions{
+  \begin{itemize}
+    \item Vous avez {\bf\TheTimeAllowed\; minutes}. 
+    \item Vérifier que vous disposez de toutes les pages. 
+    \item L'échange d'outils est strictement \textbf{interdit}.
+  \end{itemize}
+ 
+}
+\MakeHeading
+\vspace*{1cm}
+
+%% For questions use the command 
+%% \begin{questions} 
+%% \questoin[grade]
+%% \end{questions}
+
+
+
+ \begin{questions}
+% Random variable {{{ 
+   \titledquestion{(**) Question 1}
+   On considère une variable aléatoire $\mathbf{X}$ qui a une loi de
+   probabilité donnée par:
+   \begin{equation*}
+     \mathbf{P}_X(x) =
+    \begin{cases}
+      kx & x = 2, 4, 6\\[4pt]
+      k(x-2) & x =8\\[4pt]
+      0      & \text{sinon}
+   \end{cases}
+   \end{equation*}
+   où $k$ est une constante.
+\begin{parts}
+  \part[1] Déterminer la valeur de $k$.
+  \part[1] Calculer $\mathbf{P}_X(x < 5)$.
+  \part[1] Calculer l'espérance de $X$.
+  \part[1] Donner la valeur de $E[X^2]$.
+  \part[1] Calculer la valeur de $\text{Var}(3 - 4X)$.\\[8pt]
+\end{parts}
+% }}} % Random variable %
+
+% Fonction de répartition {{{ %
+\titledquestion{(**) Question 2}
+On considère une variables aléatoire $X$ qui peut prendre seulement les trois
+valeurs 1, 2, et 3. Pour chacune des ces valeurs, on définit la fonction de
+\textbf{répartition}:
+
+\begin{equation*}
+  F(t) = \mathbf{P}_X(x < t) = \frac{t^3 + k}{40}\quad t=1,2,3
+\end{equation*}
+
+\begin{parts}
+  \part[1]  Déterminer la valeur de $k$. 
+  \part[2] Donner la loi de probabilité de $X$.
+  \part[2] Sachant que $\text{Var}(X) = \frac{259}{320}$, calculer la valeur de
+  $\text{Var}(4X-5)$.\\[12pt]
+\end{parts}
+
+% }}} Fonction de repartition %
+
+% Covariance et Bernoulli {{{ %
+  \titledquestion{(***) Question 3}
+  Une urne contient $6$ boules blanches et $n$ boules rouges ($n$ est un nombre
+  entier tel que $n\geq 0$) toutes indiscernables au toucher. Un joueur tire au
+  hasard, successivement et sans remise, deux boules de l'urne. Pour chaque
+  boule blanche tirée, il gagne $2$ et pour chaque boule rouge, il perd $3$.
+
+  \begin{parts}
+    \part[1] Quelles sont les différentes valeurs que peut prendre $X$. 
+    \part[1] Montrer que 
+       \begin{equation*}
+         \mathbf{P}_X(X = -1) = \frac{12n}{(n+6)(n+5)}
+       \end{equation*}
+    \part[2] Déterminer la loi de probabilité de $X$.
+    \part[1] Montrer que 
+    \begin{equation*}
+      \mathbf{E}(X) = \frac{-6\left(n^2 + n -20\right)}{(n+6)(n+5)}
+    \end{equation*}
+  \end{parts}
+  
+% }}} Covariance et Bernoulli %
+
+% Velo {{{ %
+\titledquestion{(***) Question 4}
+Un élève se rend a vélo au lycée distant de $3$ km de son  domicile à une
+vitesse constante de $15$ km/h. Sur  le parcours, il rencontre $6$ feux
+tricolores non synchronisés. Pour chaque feu,  la probabilité qu'il soit au vert
+est $\frac{2}{3}$. Un feu orange ou rouge lui fait perdre une minute et demie.\\
+
+On appelle $\mathbf{X}$ la variable aléatoire correspondant au nombre  de feux verts
+rencontrés par l'élève sur son parcours et $\mathbf{T}$  la variable aléatoire
+donnant le temps  en minutes mis par l'élève pour se rendre au lycée.
+
+\begin{parts}
+  \part[2] Déterminer la loi de probabilité de $\mathbf{X}$.
+  \part[1] Exprimer $\mathbf{T}$ en fonction $\mathbf{X}$.
+  \part[1] En déduire $\mathbf{E}(T)$ et interpréter.
+  \part[1] L'élève part $17$ minutes avant  le début des cours. Déterminer  la
+  probabilité  qu'il arrive en retard.
+\end{parts}
+% }}} Velo %
+
+ \end{questions}
+
+\end{document}
+
