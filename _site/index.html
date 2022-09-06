@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CS221</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="An introductory course on basic techniques for problem solving.">
+    <link rel="canonical" href="http://localhost:4000/">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/main.css">
+
+    <!-- Google fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+
+    <!-- Google tracking -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46895817-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+ <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/main.css">
+    
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+
+  <div class="wrap title-wrap">
+    <a class="site-title" href="/">Introduction to Problem Solving with C++.</a>
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrap">
+      <ul id="buttons">
+    <li><a href="http://localhost:4000/syllabus/">Syllabus</a></li>
+    <li><a href="http://localhost:4000/assets/pdfs/book.pdf">Book</a></li>
+  <li><a href="https://www.codestepbystep.com">Practice</a></li>
+  <li><a href="http://localhost:4000/qtcreator/"> QT Creator
+  <li><a href="https://piazza.com/">Forum</a></li>
+</ul>
+<br>
+<br>
+
+<div class="fig figcenter fighighlight">
+    <img src="http://localhost:4000/assets/logo1.png" width="24%" height="140">      
+    <img src="http://localhost:4000/assets/logo2.png" width="24%" height="140">      
+  <img src="http://localhost:4000/assets/logo3.png" width="24%" height="140">      
+  <img src="http://localhost:4000/assets/logo4.png" width="24%" height="140">      
+</div>
+<hr>
+
+
+<div >
+    <b>Information du cours:</b><br>
+Où l’on tente d’expliquer les raisons qui nous amènent à considérer l’intelligence
+artificielle comme un sujet digne d’intérêt et où l’on essaie de cerner sa nature
+exacte, question qu’il importe de trancher avant d’aller plus avant.
+
+Ce cours sert comme introduction aux notions de bases de l'intelligence
+artificielle. les thématiques traitées sont: -agents intelligents, - Recherche,
+-Planification - Jeux - Processus de Markov de décision.
+
+
+</div>
+<hr>
+<br>
+<br>
+<strong> Book </strong>:
+
+<table style="width:80%" cellspacing=0  >
+  <tr>  
+  <td>
+
+      <img  src="http://localhost:4000/assets/book_cover.jpg"
+      width="100%" height=200>
+
+  </td>
+  
+  <td>
+    <a
+      href="https://www.amazon.com/Programming-Abstractions-C-Eric-Roberts/dp/0133454843#ace-g9314988104">
+    Programming Abstraction in C++
+    </a>
+    <br>
+    Eric S. Robert 2010
+  </td>
+  </tr>
+  <tr class ="bordered">
+</table>
+
+
+<br>
+
+<strong> Schedule </strong>:
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-bottom-width:1px;border-color:black;border-style:solid;border-top-width:1px;border-width:0px;
+  font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-bottom-width:1px;border-color:black;border-style:solid;border-top-width:1px;border-width:0px;
+  font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-c4ww{background-color:#cbcefb;border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-c2ww{background-color:#ffcc99;border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-c3ww{background-color:#ffcccc;border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-kfkg{background-color:#dae8fc;border-color:inherit;text-align:center;vertical-align:top}
+</style>
+<table class="tg">
+<thead>
+  <tr>
+      <th class="tg-c3ow"><b>Date</b><br></th>
+      <th class="tg-c3ow"><b>Topic</b></th>
+      <th class="tg-c3ow"><b>Reading</b></th>
+      <th class="tg-c3ow"><b>Documentation</b><br></th>
+      <th class="tg-c3ow"><b>Additional Material</b></th>
+      <th class="tg-c3ow"><b>Assignement</b></th>
+      <!-- <th class="tg-c3ow"><b>Location</b></th> -->
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-kfkg" colspan="7"><span style="font-weight:bold">Language
+            Basics</span></td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">08/03/2021</td>
+    <td class="tg-c3ow">Introduction</td>
+    <td class="tg-c3ow"><br> Book: Ch.1</td>
+    <td class="tg-c3ow"><br> 
+        <a href="http://localhost:4000/intro/">Introduction</a></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"> <a href="http://localhost:4000/debugging/">
+             <i class="fas fa-cloud"></i> Welcome CS221<br></td>
+    <!-- <td class="tg-c3ow">TBA<br></td> -->
+  </tr>
+
+  <tr>
+    <td class="tg-c3ow">15/03/2021</td>
+    <td class="tg-c3ow"> Fonctions, Structures, Headers<br></td>
+    <td class="tg-c3ow"> Book: 2.1-2.4<br> <a
+        </td>
+            <td class="tg-c3ow"><br>  <a href="http://localhost:4000/basics/" target="_blank">Fondements C++</a> </td>
+    <td class="tg-c3ow">
+        <a href="http://localhost:4000/part1/code/10_basics.zip">
+        10_basics.zip
+    </a>
+    </td>
+    <td rowspan=2 align="center" > <a href="http://localhost:4000/ass1/" target="_blank">Step By
+            Step (HW1)</a> <br></td>
+    <!-- <td class="tg-c3ow"> TBA <br></td> -->
+  </tr>
+  <tr>
+    <td class="tg-c3ow">17/03/2021</td>
+    <td class="tg-c3ow"> Bases, Strings <br></td>
+    <td class="tg-c3ow"> Book: Ch.3<br> <a
+            href="http://www.cplusplus.com/reference/string/string/"> string lib</a>
+        </td>
+        <td class="tg-c3ow"><br>  <a href="http://localhost:4000/strings/" target="_blank">Strings</a> </td>
+    <td class="tg-c3ow">
+        <a href = "http://localhost:4000/part1/code/10_string.zip">
+            cesar_cypher.zip
+        </a>
+    </td>
+  </tr>
+  <tr>
+      <td class="tg-c4ww" colspan="7"><span style="font-weight:bold">Vectors and
+              Memory</span></td>
+  </tr>
+
+  <tr>
+    <td class="tg-c3ow">21/03/2021</td>
+    <td class="tg-c3ow"> Raw vectors<br></td>
+    <td class="tg-c3ow"> Book: Ch5.1 <br>    
+<a href="https://en.cppreference.com/w/cpp/container/vector"> vector lib</a>
+
+    </td>
+    <td class="tg-c3ow">
+        <a href="http://localhost:4000/rawvectors/" target="_blank">Raw vectors</a>
+    </td>
+    <td class="tg-c3ow">  <a href="http://localhost:4000/part2/code/vectors.zip"> vec_demo.zip</a>
+    </td>
+    <td class="tg-c3ow"> <a href="http://localhost:4000/arrayproblems/" target="_blank">  Fun with Arrays</a> </td>
+    <!-- <td class="tg-c3ow"> TBA</td> -->
+  </tr>
+
+  <tr>
+    <td class="tg-c3ow">28/03/2021</td>
+    <td class="tg-c3ow"> STL Vector<br></td>
+    <td class="tg-c3ow"> Book: Ch5.1 <br>    
+<a href="https://en.cppreference.com/w/cpp/container/vector"> vector lib</a>
+
+    </td>
+    <td class="tg-c3ow">
+        <a href="http://localhost:4000/vectors/" target="_blank"> STL vectors</a>
+    </td>
+    <td class="tg-c3ow">  
+<a href="http://localhost:4000/part2/code/stl_vectors.zip"> stl_vec_demo.zip</a>
+    </td>
+    <td class="tg-c3ow"> <a href="http://localhost:4000/asspointers/" target="_blank">  Working with pointers</a> </td>
+    <!-- <td class="tg-c3ow"> TBA</td> -->
+  </tr>
+  <tr>
+    <td class="tg-c3ow">05/04/2021</td>
+    <td class="tg-c3ow"> Pointers<br></td>
+    <td class="tg-c3ow">book: Ch.11</td>
+    <td class="tg-c3ow">
+        <a href="http://localhost:4000/pointers/" target="_blank"> Memory and Pointers</a></td>
+    <td class="tg-c3ow">
+
+<a href="http://localhost:4000/part2/code/pointers.zip"> pointers_demo.zip</a>
+
+    </td>
+    <td class="tg-c3ow"> <a href="/ass?/" target="_blank"> Word Ladder</a> </td>
+    <!-- <td class="tg-c3ow"> TBA</td> -->
+  </tr>
+  <tr>
+      <td class="tg-c3ww" colspan="7"><span style="font-weight:bold">Big Oh and
+          Recurrence</span></td>
+  </tr>
+
+  <tr>
+    <td class="tg-c3ow"> 12/04/2021 </td>
+    <td class="tg-c3ow"> Big Oh</td>
+    <td class="tg-c3ow"> Book Ch:10.1,10.2</td>
+    <td class="tg-c3ow">
+        <a href="http://localhost:4000/complexity/" target="_blank">
+            Algorithms analysis</a></td>
+    <td class="tg-c3ow">
+
+<a href="http://localhost:4000/part3/complexity_demo.zip"> complexity_demo.zip</a>
+    </td>
+    <td class="tg-c3ow">
+<a href="http://localhost:4000/complexitywork/">Evaluating
+    complexity</a>
+    </td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow"> 04/05/2021 </td>
+    <td class="tg-c3ow"> Designing classes</td>
+    <td class="tg-c3ow"> Book Ch:6.1,6.2,6.3</td>
+    <td class="tg-c3ow">
+        <a href="http://localhost:4000/classes/" target="_blank">
+            Designing classes</a></td>
+    <td class="tg-c3ow">
+
+<a href="http://localhost:4000/part3/class_demo.zip"> classes_demo.zip</a>
+    </td>
+    <td class="tg-c3ow">
+<a href="http://localhost:4000/bouncingballs/">Bouncing Balls</a>
+    </td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+  </tr>
+
+  <tr>
+    <td class="tg-c3ow"> 17/05/2021 </td>
+    <td class="tg-c3ow"> Reccurence</td>
+    <td class="tg-c3ow"> Book Ch.7</td>
+    <td class="tg-c3ow">
+        <a href="http://localhost:4000/recurrence/" target="_blank">
+            Intro to Recurrence</a></td>
+    <td class="tg-c3ow">
+
+<a href="http://localhost:4000/part3/class_demo.zip"> classes_demo.zip</a>
+    </td>
+    <td class="tg-c3ow">
+<a href="http://localhost:4000/fractals/">Fractals</a>
+    </td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+  </tr>
+
+  <tr>
+    <td class="tg-c3ow"> 31/05/2021 </td>
+    <td class="tg-c3ow"> Sorting</td>
+    <td class="tg-c3ow"> Book Ch.10.1</td>
+    <td class="tg-c3ow">
+        <a href="http://localhost:4000/sorting/" target="_blank">
+            Sorting</a></td>
+    <td class="tg-c3ow">
+
+<a href="http://localhost:4000/part3/sorting.zip"> sorting_demo.zip</a>
+    </td>
+    <td class="tg-c3ow">
+<a href="http://localhost:4000/quicksort/">Quick Sort</td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+  </tr>
+
+  <tr>
+      <td class="tg-c2ww" colspan="7"><span style="font-weight:bold">Data
+              Structres</span></td>
+  </tr>
+
+  <tr>
+    <td class="tg-c3ow"> 07/06/2021 </td>
+    <td class="tg-c3ow"> Linked Lists 1</td>
+    <td class="tg-c3ow"> Book Ch.12.2</td>
+    <td class="tg-c3ow">
+        <a href="http://localhost:4000/linkedlists1/" target="_blank">
+            Singly Linked Lists</a></td>
+    <td class="tg-c3ow">
+
+<a href="http://localhost:4000/part4/singly_linked_lists.zip">
+    Sinly_Linked_lists.zip</a>
+    </td>
+    <td class="tg-c3ow">
+<a href="http://localhost:4000/funlinkedlists/">Fun with LL</td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+  </tr>
+</tbody>
+</table>
+
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrap">
+
+    <div class="footer-col-1 column">
+      <ul>
+        
+        <li>
+          <a href="https://github.com/anassBelcaid">
+            <span class="icon github">
+              <svg version="1.1" class="github-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+                <path fill-rule="evenodd" clip-rule="evenodd" fill="#C2C2C2" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761
+                c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32
+                c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472
+                c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037
+                C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65
+                c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261
+                c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082
+                c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129
+                c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+              </svg>
+            </span>
+            <span class="username">anassBelcaid</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/anassbelcaid1">
+            <span class="icon twitter">
+              <svg version="1.1" class="twitter-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+                <path fill="#C2C2C2" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+                c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27
+                c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767
+                c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206
+                C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271
+                c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469
+                c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+              </svg>
+            </span>
+            <span class="username">anassbelcaid1</span>
+          </a>
+        </li>
+        <li>
+          <a href="mailto:a.belcaid@ueuromed.org">a.belcaid@ueuromed.org</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer-col-2 column">
+        
+    </div>
+
+    <div class="footer-col-3 column">
+      
+    </div>
+
+  </div>
+
+</footer>
+
+
+    <!-- mathjax -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </body>
+</html>

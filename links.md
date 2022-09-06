@@ -1,2 +1,0 @@
-- [Edx course](https://learning.edx.org/course/course-v1:MITx+6.431x+1T2022/home)
-- [textbook](http://athenasc.com/probbook.html)
