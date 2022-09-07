@@ -1,0 +1,98 @@
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[11pt,largemargins]{homework}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage[french]{babel}
+
+
+\newcommand{\hwname}{ENSA-Safi}
+\newcommand{\hwemail}{}
+\newcommand{\hwtype}{Travaux Dirigés}
+\newcommand{\hwnum}{4}
+\newcommand{\hwclass}{Prob} 
+\newcommand{\hwlecture}{4}
+\newcommand{\hwsection}{Z}
+
+
+
+\begin{document}
+\maketitle
+
+\question*{Self-Indepenence}
+
+Soit $A$ un évènement de l'espace d'étai $\Omega$.
+\begin{arabicparts}
+  \item Quand est ce $\mathbf{A}$ serait indépendant de soi $\mathbf{A}$
+\end{arabicparts}
+
+\question*{Modèle Conditionnel}
+Dans une classe, la proportion des étudiants ayant préparé l'examen est $p \in
+[0,1]$. Ceux qui n'ont pas prépayé l'examen réussissent avec une probabilité
+égale a $\frac{1}{2}$ tandis que ceux qui l'ont préparé réussissent avec une
+probabilité $\alpha \geq 0.99$.
+
+\begin{arabicparts}
+\item Si un étudiant échoue, quelle est la probabilité qu'il n'ait pas préparé
+  l'examen? 
+\end{arabicparts}
+
+\question*{Indépendance deux a deux}
+Votre voisine a deux enfants dont vous ignorez le sexe. On considère les trois
+évènements suivants:
+
+\begin{itemize}
+  \item $A = $  {"\small les deux enfants sont de sexes différents"}.
+  \item $B = $  {"\small L'ainée est une fille"}.
+  \item $C = $  {"\small Le cadet est un garçon"}.
+\end{itemize}
+    On suppose que la probabilité d'avoir une fille est $p = \frac{1}{2}$.\\
+    \begin{arabicparts}
+        \item Montrer que les trois événement $A$ , $B$ et $C$ sont deux a
+          deux indépendants.
+        \item Est ce qu'ils sont mutuellement indépendants?
+    \end{arabicparts}
+
+
+\question*{Fiabilite}
+On suppose que les unités d'un système peuvent être fonctionnelles avec un
+probabilité $\frac{2}{3}$ et peuvent échouer avec une probabilité $\frac{1}{3}$.
+On suppose que ces unités sont \textbf{indépendants}. Pour chaque système
+calculer la probabilité que le système soit fonctionnel( i.e. Il existe un
+chemin du point a gauche a celui de droite).
+
+
+\begin{arabicparts}
+    \item Premier système: 
+      \begin{center}
+      \begin{tikzpicture}[scale=1, transform shape]
+       \node[draw, inner sep=0pt, minimum size=12pt, thick]  (A) at (0,0) {}; 
+       \node[draw, inner sep=0pt, minimum size=12pt, thick]  (B) at (2,1) {}; 
+       \node[draw, inner sep=0pt, minimum size=12pt, thick]  (C) at (2,-1) {}; 
+       \path[draw,thick] (-1,0) -- (A) -- (1,0) --
+         (1,1)--(B)--(3,1)--(3,0)--(4,0);
+
+       \path[draw,thick] (-1,0) -- (A) -- (1,0) --
+         (1,-1)--(C)--(3,-1)--(3,0)--(4,0);
+      \end{tikzpicture}
+      \end{center}
+
+      \item Deuxième systeme:
+        \begin{center}
+        \begin{tikzpicture}[scale=1, transform shape]
+       \node[draw, inner sep=0pt, minimum size=12pt, thick]  (A) at (1,1) {}; 
+       \node[draw, inner sep=0pt, minimum size=12pt, thick]  (B) at (3,1) {}; 
+       \node[draw, inner sep=0pt, minimum size=12pt, thick]  (C) at (2,-1) {}; 
+       \path[draw,thick] (-1,0)--(0,0)--(0,1)--(A)--(B)--(4,1)--(4,0)--(5,0);
+       \path[draw,thick] (-1,0)--(0,0)--(0,-1)--(C)--(4,-1)--(4,0)--(5,0);
+        \end{tikzpicture}
+        \end{center}
+        
+
+\end{arabicparts}
+
+
+
+
+\end{document}

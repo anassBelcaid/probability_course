@@ -1,0 +1,471 @@
+%{{{
+\documentclass{beamer}
+\usetheme{ensam}
+\usepackage{pgfplots}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{subcaption}
+\usepackage{acronym}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{amsmath}
+\usepackage {algorithmic}
+\usepackage{algorithm}
+\usepackage{eqparbox}
+\usepackage[font=scriptsize]{caption}
+\usetikzlibrary{bayesnet,positioning,calc}
+\tikzstyle{obs} = [latent,fill=lightBlue]
+\tikzstyle{default}=[draw=sexyRed,thick,rounded corners,text width=0.5in,font=\scriptsize,align=center]
+\usepgfplotslibrary{colorbrewer}
+%algorithmic comment
+\renewcommand\algorithmiccomment[1]{%
+  \hfill\comment{\#\scriptsize\eqparbox{COMMENT}{#1}}%
+}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\title{Variables Aleaoitres Discrete II}
+\author{\underline{A.Belcaid}}
+\institute{\small ENSA-Safi} 
+
+%tikz bayesian theme
+\usetikzlibrary{bayesnet,positioning,calc}
+\tikzstyle{obs} = [latent,fill=lightBlue]
+\tikzstyle{default}=[draw=sexyRed,thick,rounded corners,text width=0.5in,font=\scriptsize,align=center]
+\DeclareMathOperator{\argmin}{argmin}
+
+\pgfplotsset{every tick label/.append style={font=\tiny}}
+
+
+
+% options for tcolorbox
+\tcbset{fonttitle=\bfseries}
+\acrodef{VA}{Variable Aléatoire}
+\renewcommand{\P}{\mathbf{P}}
+\newcommand{\E}{\mathbf{E}}
+\newcommand{\var}{\text{var}}
+
+
+
+\begin{document}
+\maketitle
+\begin{frame}
+\tableofcontents
+\end{frame}
+\section{Variance}
+\begin{frame}[<+->]
+  \frametitle{Variance}
+  \begin{itemize}
+    \scriptsize
+    \item Soit $X$ une \acf{VA} avec une espérance $\mu = \E[X]$.\\[4pt]
+    \item On considère alors la \ac{VA}  $X - \mu$.\\[4pt]
+    \item Quelle sera l'\alert{\textbf{espérance}}  de $X - \mu$.\\[4pt]
+  \end{itemize}
+  \pause
+  \begin{tcolorbox}[title=Variance]
+   \small
+   $$
+   \var(X) = \E[\;\left(X - \mu\right)^2\;]
+   $$
+ \end{tcolorbox}
+
+\begin{itemize}
+  \scriptsize
+  \item On peut la calculer en utilisant l'espérance d'une fonction d'une
+    \ac{VA}.
+    \small
+    \begin{equation*}
+      \var(X) = \sum_x \P_X(x) \left(x - \mu\right)^2
+    \end{equation*}
+  \item Une autre entité reliée a la \textbf{variance} est:
+    \begin{tcolorbox}[title=Ecart type]
+      $$
+      \sigma(X) = \sqrt{\var\left(X\right)} $$
+    \end{tcolorbox}
+    
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Propriétés Variance}
+  
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+  \begin{itemize}
+    \small
+    \item<1-> On note $\mu = \E(X)$.\\[4pt]
+    \item<2-> Soit $Y = X = b$, calculer 
+          $$
+          \var \left( Y \right) = 
+          $$
+          \vspace*{.5cm}
+    \item<3-> On note $Y = aX$, calculer
+
+          $$
+          \var \left( Y \right) = 
+          $$
+  \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \only<4->
+      {
+        \begin{tcolorbox}
+       $$
+       \var(\left( aX + b\right) =  a^2 \var \left( X\right)
+       $$
+        \end{tcolorbox}
+      }
+    \end{column}
+  \end{columns}
+  \only<5->{
+  On peut en déduire une formule utile pour le calcul de variance:
+  
+  \begin{tcolorbox}[title = Formule utile]
+   $$
+   \var(X) = \E[X^2] - \left(\E[X]^2\right)
+   $$
+  \end{tcolorbox}
+}
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Variance d'une Bernoulli}
+  on considère un \ac{VA}  qui suit une loi \alert{\textbf{Bernoulli}}.
+  \begin{equation*}
+    X = \begin{cases}
+       1, & \text{\scriptsize avec prob } p\\ 
+       0, & \text{\scriptsize avec prob } 1-p
+    \end{cases}
+  \end{equation*}
+ \pause 
+  \begin{itemize}
+    \item Calculer la \alert{\textbf{Variance}}  de X avec formule normale:
+      \begin{equation*}
+        \var(X) = \sum_x ( x - \E[X])^2\P_X(x)
+      \end{equation*}
+  \end{itemize}
+  \vspace*{1cm}
+  \begin{itemize}
+    \item Calculer la \alert{\textbf{Variance}}  de X en utilisant la deuxième
+      formule:
+    
+      \begin{equation*}
+        \var(X) = \E(X^2) - (\E[X])^2
+      \end{equation*}
+  \end{itemize}
+\end{frame}
+\begin{frame}[<+->]
+  \frametitle{Variance Loi Uniforme}
+ \begin{columns}
+   \begin{column}{0.5\textwidth}
+     \scriptsize
+    \only<2->{
+      \begin{eqnarray*}
+        \var[X] & =  & \E[X^2] - (\E[X])^2\\
+                & = & \frac{1}{n+1} \left(\sum_{i=0}^n i^2\right) -
+                \left(\frac{n}{2}\right)^2\\
+                & = & \frac{n(n+1)(2n+1)}{6(n+1)} -  \left(\frac{n}{2}\right)^2\\[4pt]
+                & = & \frac{n(n+2)}{12}
+      \end{eqnarray*}
+      
+    }
+    \only<3->{
+      \scriptsize
+      \begin{itemize}
+        \item Pour le cas général entre $[a,b]$. on pose \alert{$n = b - a$}.
+          \begin{equation*}
+            \var(X) = \frac{1}{12}(b-a)(b-a + 2)
+          \end{equation*}
+      \end{itemize}
+    }
+   \end{column}
+   \begin{column}{0.5\textwidth}
+     \only<1->{
+         \centering
+         \includegraphics[width=0.8\textwidth]{./uniform_ref.png}
+     }
+
+     \vspace*{2cm}
+     \only<3->{
+         \centering
+         \includegraphics[width=0.8\textwidth]{./uniform_general.png}
+     }
+   \end{column}
+ \end{columns} 
+\end{frame}
+\section{VA conditionnée sur un évènement}
+\begin{frame}[t]
+  \frametitle{Conditionnement sur un évènement}
+  \begin{itemize}
+    \small
+    \item On considère un évènement $A$ et on utilise la loi de \alert{probabilité
+      conditionnée sur $A$}.
+  \end{itemize}
+  \centering
+  \scriptsize
+  \vspace*{1cm}
+  \begin{tabular}{m{5cm}m{5cm}}
+   \toprule 
+   \textbf{Loi Classique} & \textbf{Loi conditionnée}\\[8pt]
+   \midrule
+   $$ \P_X(x) = \P(X = x)$$ &  $$\P_{X|A}(x) = \P_X( X = x\;|\; A)$$ \\[3pt]
+   $$ \sum_x\P_X(x) = 1$$ &  $$\sum_x\P_{X|A}(x) = 1$$ \\[3pt]
+   $$ \E[X] = \sum_x x\cdot\P_X(x)  $$ &  $$\E[X|A] = \sum_x x\cdot\P_{X|A}(x)$$ \\[3pt]
+   $$ \E[g(X)] = \sum_x g(x)\cdot\P_X(x)  $$ &  $$\E[g(X)|A] = \sum_x g(x)\cdot\P_{X|A}(x)$$ \\[4pt]
+   \bottomrule
+\end{tabular}
+\end{frame}
+\begin{frame}[t]
+  \frametitle{Exemples}
+ \begin{columns}
+   \begin{column}{0.5\textwidth}
+     \centering
+     \includegraphics[width=0.8\textwidth]{./condition_example1.png}
+     \vspace*{1cm}
+        $$\E[X]=$$
+        $$\var(X)=$$.
+   \end{column}
+   \begin{column}{0.5\textwidth}
+    \only<2->{
+      \begin{itemize}
+        \small
+      \item  On considère alors l'évènement \alert{$A={X \geq 2}$}
+      \end{itemize}
+      \vspace*{.5cm}
+     \centering
+     \includegraphics[width=0.8\textwidth]{./condition_example2.png}
+     
+     $$
+     \E[X\;|\;A] = 
+     $$
+
+     $$
+     \var(X\;|\;A) = 
+     $$
+    }
+   \end{column}
+ \end{columns} 
+\end{frame}
+\begin{frame}[t]
+  \frametitle{Théorème d'espérance totale}
+ \begin{columns}
+   \begin{column}{0.4\textwidth}
+      \centering
+      \includegraphics[width=0.8\textwidth]{./total_expectation.png}
+      \pause
+      
+      \only<3->{
+      \vspace*{2cm}
+      \centering
+      \includegraphics[width=0.8\textwidth]{./total_expectation2.png}
+    }
+   \end{column}
+   \begin{column}{0.6\textwidth}
+     \scriptsize
+     \only<1->{
+     $$
+     P(B) = P_X(A_1)P_X(B|A_1) +  \ldots  + P_X(A_n)P_X(B|A_n)
+   $$
+ }
+ \only<2->{
+     $$
+     P(x) = P_X(A_1)P_{X|A}(x) +  \ldots  + P_X(A_n)P_{X|A_n}(x)
+     $$
+   }
+   \only<4->
+   {
+     \vspace*{1cm}
+     \begin{tcolorbox}[title=Espérance totale]
+       \scriptsize
+      $$
+      \E[X|A] = \sum_i^n \P(A_i)\E[X|A_i]
+      $$
+     \end{tcolorbox}
+     
+   }
+   \end{column}
+ \end{columns} 
+\end{frame}
+\begin{frame}[t]
+  \frametitle{Exemple Espérance Totale}
+ \begin{figure}[htpb]
+   \centering
+   \includegraphics[width=0.7\textwidth]{./esperance_total_example.png}
+   \caption{Calculer l'espérance de cette variable}
+ \end{figure} 
+ \pause
+\end{frame}
+\section{Multiples VAs}
+\begin{frame}[t]
+  \frametitle{Couple de variables aléatoires}
+  
+  \begin{columns}
+    \begin{column}{0.4\textwidth}
+     \only<1->
+     {
+         \begin{itemize}
+           \item $ X : \P_X(x)$.\\[4pt]
+           \item $ Y : \P_Y(y)$.\\[4pt]
+         \end{itemize}        
+     }
+     \only<2->{
+       \begin{tcolorbox}[title=Question]
+         \small
+         $\P(X = Y)$?
+       \end{tcolorbox}
+       
+     }
+     \only<4->{
+         \vspace*{1cm}
+         \centering
+         \includegraphics[width=0.8\textwidth]{joint_example.png}
+     }
+    \end{column}
+    \begin{column}{0.6\textwidth}
+      
+      \only<3->
+      {
+        \begin{tcolorbox}[title=Loi de couple de VA]
+          \small
+          $$
+          \P_{XY}(x, y) = \P(X=x \alert{\text{ et }} Y = y)
+          $$
+          
+        \end{tcolorbox}
+      }
+
+    \only<4>
+    {
+      \begin{eqnarray*}
+           \P_{XY}(1, 3) &=&  ?\\
+           \P_{X}(3)     &=& ? \\
+           \P_Y(2)       &=& ?
+      \end{eqnarray*}
+    }
+
+    \only<5>
+    {
+      \begin{eqnarray*}
+           \sum_x\sum_y\P_{XY}(x, y) &=&  1\\
+           \P_{X}(x)     &=& \sum_y \P_{X,Y}(x,y) \\
+           \P_Y(y)      &=& \sum_x \P_{X,Y}(x,y)
+      \end{eqnarray*}
+    }
+    \end{column}
+  \end{columns}
+\end{frame}
+\begin{frame}[t]
+  \frametitle{Espérance d'une fonction de couple}
+ \begin{itemize}
+   \small
+   \item On considère deux \ac{VA} $X$ et $Y$.\\[4pt]
+   \item Soit \alert{$Z = g(X,Y)$} une \ac{VA}  qui dépend de $X$ et $Y$.\\[4pt]
+   \item La loi de $Z$ est donnée par:\vspace*{.5cm}
+     \begin{center}
+       \begin{minipage}{.7\textwidth}
+         
+         \begin{tcolorbox}
+          $$
+          \P_Z(z) = \P(Z = z) = \P(g(X,Y) = z)
+          $$
+         \end{tcolorbox}
+       \end{minipage}
+     \end{center}
+     
+     \vspace{.5cm}
+  \item Aussi l' \alert{\textbf{espérance}}  de $Z$ est:
+     \begin{center}
+       \begin{minipage}{.7\textwidth}
+         \begin{tcolorbox}
+          $$
+          \E[g(X,Y)] = \sum_x \sum_y g(x,y)\P_{XY}(x,y)
+          $$
+         \end{tcolorbox}
+       \end{minipage}
+     \end{center}
+
+ \end{itemize} 
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Espérance de la somme}
+  \begin{itemize}
+    \small
+    \item On sait deja que :
+      $$
+      \E[aX + b] = a\;\E[X]  + b
+      $$
+      \pause
+    \item Maintenant on doit prouver le théorème\vspace*{.4cm}
+      \begin{minipage}{.8\textwidth}
+         \centering
+         \begin{tcolorbox}
+          $$
+          \E[X + Y] = \E[X] + \E[Y]
+          $$
+         \end{tcolorbox}
+      \end{minipage}
+  \end{itemize}
+  
+  \begin{itemize}
+    \item \alert{\textbf{Indice}}: Poser $g(X,Y) = X + Y$.
+
+      \pause
+      \vspace*{.5cm}
+      \begin{minipage}{.8\textwidth}
+         \centering
+         \begin{tcolorbox}
+          $$
+          \E[X + \ldots  + X_n] = \E[X_1] + \ldots + \E[X_n]
+          $$
+         \end{tcolorbox}
+      \end{minipage}
+  \end{itemize}
+\end{frame}
+\begin{frame}[t]
+  \frametitle{Espérance d'une binomiale}
+  
+  \begin{columns}
+    \begin{column}{0.4\textwidth}
+      \begin{itemize}
+        \scriptsize
+        \item Soit $X$ une binomiale avec paramètres $\mathbf{p}$  et
+          $\mathbf{n}$.
+          \begin{itemize}
+            \scriptsize
+            \item Le nombre de succès pour $n$ Bernoulli.
+          \end{itemize}
+        \item<3->
+          on pose la \alert{\textbf{variable indicatrice}}  
+          $$
+          X_i  = \begin{cases}
+           1   & \text{\scriptsize essai i est réussi}\\   
+           0   & \text{\scriptsize sinon}
+          \end{cases}
+          $$
+        \item <4->
+          $$
+          X = X_1 + \ldots + X_n
+          $$
+
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \only<2->{
+        \scriptsize
+     $$ 
+     \E[X] = \sum_{k=0}^n k  \binom{n}{k}p^k(1-p)^{n-k}
+     $$
+   }
+
+      \only<5->{
+       \begin{tcolorbox}
+        $$
+        \E[X]  = \alert{np}
+        $$
+       \end{tcolorbox}
+        
+   }
+    \end{column}
+  \end{columns}
+\end{frame}
+\end{document}
